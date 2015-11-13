@@ -2,6 +2,7 @@ define([], function () {
     function Line(start, end) {
         this.Start = start;
         this.End = end;
+        this.Width = 5;
         this.UIElem = null;
         //this.update.bind(this);
         //this.complete.bind(this);
@@ -17,7 +18,8 @@ define([], function () {
             .attr("x2", x)
             .attr("y2", y)
             .style("stroke", start.Color)
-            .on('mouseup', function () { this.complete(canvas); }.bind(this));
+            .attr("stroke-width", this.Width);
+        canvas.Container.on('mouseup', function () { this.complete(canvas); }.bind(this));
         var update = this.update.bind(this);
         canvas.on("mousemove", function () { update(this); });
     };

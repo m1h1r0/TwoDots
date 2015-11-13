@@ -35,7 +35,7 @@ define([
                 .datum(this)
                 .attr('cx', renderCX)
                 .attr('cy', renderCY)
-                .attr('r', 10)
+                .attr('r', 20)
                 .style('fill', function (d) { return d.Color; })
                 .on('mousedown', this.mousedown.bind(this));
             this.UIElem = uiDot;
@@ -45,7 +45,8 @@ define([
     Dot.prototype.move = function () {
         this.UIElem
             .transition()
-            .duration(1000)
+            .duration(700)
+            .ease('elastic')
             .attr('cy', renderCY)
     };
 

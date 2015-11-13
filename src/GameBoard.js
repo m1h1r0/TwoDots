@@ -15,6 +15,8 @@ define([
 
     GameBoard.init = function () {
         GameBoard.Canvas = d3.select('svg');
+        GameBoard.Canvas.Container = d3.select('body');
+
         GameBoard.createDots();
 
         amplify.subscribe("InitDotSelected", GameBoard.initLine);
